@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap');
 :root{--ink:#382018;--muted:#674d40;--orange:#b9400b;--accent:#ef641c;--cream:#fff8ef;--line:#ead9c8;--peach:#ffedda;--display:"Nunito",system-ui,sans-serif}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
+html{scroll-behavior:smooth;scroll-padding-top:98px}
 body{margin:0;background:#fffdf9;color:var(--ink);font:400 1rem/1.7 "Be Vietnam Pro",system-ui,sans-serif}
 a{color:inherit}
 a:focus-visible,summary:focus-visible{outline:3px solid #733110;outline-offset:5px}
@@ -20,7 +20,7 @@ section[id]{scroll-margin-top:20px}
 .skip:focus{transform:none}
 .site-header{position:sticky;top:0;z-index:4;background:#fffdf9;border-bottom:1px solid #f1e3d8}
 .nav,.footer-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav{min-height:84px}
+.nav{min-height:75px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;line-height:1.18;white-space:nowrap}
 .brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:var(--orange);color:white;font:900 2.15rem/1 var(--display)}
 .brand strong{display:block;font:900 1.65rem/1.02 var(--display);color:var(--orange)}
@@ -99,7 +99,7 @@ address a{font-weight:800;color:var(--orange)}
 footer{background:#382018;color:#fff9ee}
 .footer-row{min-height:70px}
 @media(max-width:950px){.wrap{width:calc(100% - 48px)}.nav{gap:14px}.header-cta{font-size:.85rem}.hero-grid{gap:25px}.actions .button{padding-inline:15px}.hero-photo{border-radius:55px 14px 55px 14px}}
-@media(max-width:720px){html{scroll-padding-top:71px}.wrap{width:calc(100% - 36px)}.nav{min-height:70px}.nav nav{display:none}.brand{gap:8px}.brand-mark{width:34px;height:34px;font-size:1.7rem}.brand strong{font-size:1.35rem}.brand small{font-size:.63rem}.header-cta{padding:10px 12px;min-height:43px;font-size:.76rem}.header-cta span{display:none}.hero-grid,.offers-head,.emergency-grid,.reasons-grid,.contact-grid{grid-template-columns:1fr}.hero-copy{gap:17px}.hero-photo{aspect-ratio:1.35}.offers-head{gap:20px}.offer-list{grid-template-columns:1fr}.offer-list article{padding:16px 0}.offer-list article+article{border-left:0;border-top:1px solid #e3c4ab}.price{margin:2px 0 5px}.offer-foot{gap:9px}.emergency-grid{gap:20px}.light{justify-self:start}.reasons figure{order:2;aspect-ratio:1.55}.timeline{grid-template-columns:1fr;margin-top:22px;padding-left:8px}.timeline li{border-top:0;border-left:1px solid #dfab85;padding:0 0 18px 20px}.timeline li::before{left:-5px;top:7px}.timeline li:last-child{padding-bottom:0}.timeline span{display:inline;margin-right:5px}.timeline h3{display:inline}.timeline p{margin-top:3px}.facade{order:2;aspect-ratio:1.4}.footer-row{font-size:.85rem}}
+@media(max-width:720px){.wrap{width:calc(100% - 36px)}.nav{min-height:70px}.nav nav{display:none}.brand{gap:8px}.brand-mark{width:34px;height:34px;font-size:1.7rem}.brand strong{font-size:1.35rem}.brand small{font-size:.63rem}.header-cta{padding:10px 12px;min-height:43px;font-size:.76rem}.header-cta span{display:none}.hero-grid,.offers-head,.emergency-grid,.reasons-grid,.contact-grid{grid-template-columns:1fr}.hero-copy{gap:17px}.hero-photo{aspect-ratio:1.35}.offers-head{gap:20px}.offer-list{grid-template-columns:1fr}.offer-list article{padding:16px 0}.offer-list article+article{border-left:0;border-top:1px solid #e3c4ab}.price{margin:2px 0 5px}.offer-foot{gap:9px}.emergency-grid{gap:20px}.light{justify-self:start}.reasons figure{order:2;aspect-ratio:1.55}.timeline{grid-template-columns:1fr;margin-top:22px;padding-left:8px}.timeline li{border-top:0;border-left:1px solid #dfab85;padding:0 0 18px 20px}.timeline li::before{left:-5px;top:7px}.timeline li:last-child{padding-bottom:0}.timeline span{display:inline;margin-right:5px}.timeline h3{display:inline}.timeline p{margin-top:3px}.facade{order:2;aspect-ratio:1.4}.footer-row{font-size:.85rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* Pet24h campaign palette and section transitions */
@@ -935,6 +935,7 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
 
 .menu-toggle { display: none; }
 @media (max-width: 760px) {
+  html { scroll-padding-top: 93px; }
   .site-header > .nav { position: relative; width: calc(100% - 24px); min-height: 70px; gap: 8px; }
   .site-header .brand { align-items: center; gap: 8px; }
   .site-header .brand-logo { width: 45.6px; height: auto; flex: none; }
@@ -959,10 +960,9 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
 }
 
 /* Compact promotion ticker above the navigation. */
-.promo-bar { display: block; height: 15px; overflow: hidden; color: #fff; background: linear-gradient(105deg, #f45100, #ff8900 48%, #ed4800); text-decoration: none; font-size: 11px; font-weight: 700; line-height: 15px; }
-.promo-track { display: flex; width: max-content; animation: promo-scroll 32s linear infinite; }
-.promo-group { display: flex; flex: 0 0 auto; justify-content: space-around; align-items: center; gap: 40px; min-width: 100vw; padding-inline: 20px; white-space: nowrap; }
-.promo-group > span::before { content: "✦"; margin-right: 10px; color: #ffe9ac; }
-.promo-bar:hover .promo-track, .promo-bar:focus-visible .promo-track { animation-play-state: paused; }
-@keyframes promo-scroll { to { transform: translateX(-50%); } }
+.promo-bar { display: block; height: 22px; overflow: hidden; color: #fff; background: linear-gradient(105deg, #f45100, #ff8900 48%, #ed4800); text-decoration: none; font-size: 12px; font-weight: 700; line-height: 22px; }
+.promo-track { display: flex; width: max-content; animation: promo-scroll var(--promo-duration, 0s) linear infinite; }
+.promo-group { display: flex; flex: 0 0 auto; align-items: center; gap: 16px; padding-inline-end: 16px; white-space: nowrap; }
+.promo-group > span::before { content: "✦"; margin-right: 6px; color: #ffe9ac; }
+@keyframes promo-scroll { to { transform: translateX(var(--promo-distance, 0px)); } }
 @media (prefers-reduced-motion: reduce) { .promo-track { animation: none; } }

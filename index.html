@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#fff8ee">
 <meta name="description" content="Pet24h Thạch Thất khám, xét nghiệm, phẫu thuật và cấp cứu cho chó mèo. Đặt lịch qua Zalo hoặc gọi 0983376911.">
 <title>Pet24h Thạch Thất | Bệnh viện thú y cho chó mèo</title>
-<link rel="stylesheet" href="style.css?v=pet24h-promo-storefront-v12">
-<link rel="stylesheet" href="hero.css?v=pet24h-promo-storefront-v12">
+<link rel="stylesheet" href="style.css?v=pet24h-continuous-ticker-v14">
+<link rel="stylesheet" href="hero.css?v=pet24h-layered-storefront-v15">
 </head>
 <body id="dau-trang">
 <a class="skip" href="#main">Đến nội dung chính</a>
 <header class="site-header">
   <a class="promo-bar" href="#uu-dai" aria-label="Ưu đãi 30/10–30/11: Tắm chó mèo 39.000đ; soi da, soi tai miễn phí; tầm soát sức khỏe tổng quát 399.000đ. Xem ưu đãi.">
-    <span class="promo-track" aria-hidden="true"><span class="promo-group"><span>Tắm chó mèo chỉ 39.000đ</span><span>Soi da, soi tai miễn phí</span><span>Tầm soát sức khỏe tổng quát 399.000đ</span><span>Ưu đãi 30/10–30/11 · Nhắn Zalo đặt lịch</span></span><span class="promo-group"><span>Tắm chó mèo chỉ 39.000đ</span><span>Soi da, soi tai miễn phí</span><span>Tầm soát sức khỏe tổng quát 399.000đ</span><span>Ưu đãi 30/10–30/11 · Nhắn Zalo đặt lịch</span></span></span>
+    <span class="promo-track" aria-hidden="true"><span class="promo-group"><span>Tắm chó mèo chỉ 39.000đ</span><span>Soi da, soi tai miễn phí</span><span>Tầm soát sức khỏe tổng quát 399.000đ</span><span>Ưu đãi 30/10–30/11 · Nhắn Zalo đặt lịch</span></span></span>
   </a>
   <div class="wrap nav">
     <a class="brand" href="#dau-trang"><img class="brand-logo" src="assets/hero/mark.png" width="116" height="106" alt=""><span><strong>Pet 24h</strong><small>Bệnh viện thú y Thạch Thất</small></span></a>
@@ -39,7 +39,7 @@
         <p>Khám, điều trị và cấp cứu<br>chó mèo tại Thạch Thất</p>
         <img class="layer-tag-heart" src="assets/hero/tag-heart-separate.png" alt="">
       </div>
-      <p class="layer-hero-lead"><strong>Pet24h</strong> có dịch vụ bao gồm:</p>
+      <p class="layer-hero-lead" hidden><strong>Pet24h</strong> có dịch vụ bao gồm:</p>
       <ul class="layer-hero-services">
         <li><img src="assets/hero/lab-redrawn.png" alt="">Xét nghiệm</li>
         <li><img src="assets/hero/scan-redrawn.png" alt="">Siêu âm</li>
@@ -209,6 +209,32 @@
   <div class="wrap footer-row"><span>© Pet24h Thạch Thất</span><a href="http://zalo.me/0356689475" target="_blank" rel="noopener">Được thực hiện bởi Văn Vạn</a></div>
 </footer>
 <script>
+  const promoBar = document.querySelector('.promo-bar');
+  const promoTrack = promoBar.querySelector('.promo-track');
+  const promoGroup = promoTrack.firstElementChild;
+  const fitPromoTicker = () => {
+    const groupWidth = promoGroup.getBoundingClientRect().width;
+    if (!groupWidth) return;
+    const groupsNeeded = Math.ceil(promoBar.clientWidth / groupWidth) + 1;
+    while (promoTrack.childElementCount < groupsNeeded) {
+      promoTrack.append(promoGroup.cloneNode(true));
+    }
+    while (promoTrack.childElementCount > groupsNeeded) {
+      promoTrack.lastElementChild.remove();
+    }
+    promoTrack.style.setProperty('--promo-distance', `-${groupWidth}px`);
+    promoTrack.style.setProperty('--promo-duration', `${groupWidth / 38}s`);
+  };
+  fitPromoTicker();
+  if ('ResizeObserver' in window) {
+    const promoObserver = new ResizeObserver(fitPromoTicker);
+    promoObserver.observe(promoBar);
+    promoObserver.observe(promoGroup);
+  } else {
+    window.addEventListener('resize', fitPromoTicker);
+    document.fonts.ready.then(fitPromoTicker);
+  }
+
   const menuToggle = document.querySelector('.menu-toggle');
   const navigation = document.getElementById('main-navigation');
   const header = document.querySelector('.site-header');
@@ -236,7 +262,7 @@
     const heroTitleCopy = heroTitle.querySelector('.hero-title-copy');
     const context = document.createElement('canvas').getContext('2d');
     const fitHeroTitle = () => {
-      if (!context || window.matchMedia('(min-width: 761px) and (max-width: 1023px)').matches) {
+      if (!context) {
         heroTitle.style.removeProperty('--hero-fitted-size');
         return;
       }
@@ -257,7 +283,7 @@
     const heroCopy = heroSection.querySelector('.layer-hero-copy');
     const heroCta = heroSection.querySelector('.layer-hero-cta');
     const fitMobileHero = () => {
-      if (!window.matchMedia('(max-width: 760px)').matches) {
+      if (!window.matchMedia('(max-width: 1023px)').matches) {
         heroSection.style.removeProperty('--hero-mobile-safe-height');
         return;
       }
