@@ -6,15 +6,15 @@
 <meta name="theme-color" content="#fff8ee">
 <meta name="description" content="Pet24h Thạch Thất khám, xét nghiệm, phẫu thuật và cấp cứu cho chó mèo. Đặt lịch qua Zalo hoặc gọi 0983376911.">
 <title>Pet24h Thạch Thất | Bệnh viện thú y cho chó mèo</title>
-<link rel="stylesheet" href="style.css?v=pet24h-service-spacing-v3">
-<link rel="stylesheet" href="hero.css?v=pet24h-title-taller-v3">
+<link rel="stylesheet" href="style.css?v=pet24h-mobile-header-release-v8">
+<link rel="stylesheet" href="hero.css?v=pet24h-hero-title-roomier-v9">
 </head>
 <body id="dau-trang">
 <a class="skip" href="#main">Đến nội dung chính</a>
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="#dau-trang"><img class="brand-logo" src="assets/hero/mark.png" width="116" height="106" alt=""><span><strong>Pet 24h</strong><small>Bệnh viện thú y Thạch Thất</small></span></a>
-    <nav aria-label="Điều hướng chính">
+    <nav id="main-navigation" aria-label="Điều hướng chính">
       <a href="#uu-dai">Ưu đãi</a>
       <a href="#dich-vu">Dịch vụ</a>
       <a href="#cap-cuu">Cấp cứu</a>
@@ -22,6 +22,9 @@
       <a href="#quy-trinh-kham">Quy trình khám</a>
     </nav>
     <a class="button header-cta" href="https://zalo.me/0983376911" target="_blank" rel="noopener">Nhận Tư Vấn</a>
+    <button class="menu-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Mở menu điều hướng">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
   </div>
 </header>
 <main id="main">
@@ -203,12 +206,34 @@
   <div class="wrap footer-row"><span>© Pet24h Thạch Thất</span><a href="http://zalo.me/0356689475" target="_blank" rel="noopener">Được thực hiện bởi Văn Vạn</a></div>
 </footer>
 <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navigation = document.getElementById('main-navigation');
+  const header = document.querySelector('.site-header');
+  const setMenuOpen = open => {
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Đóng menu điều hướng' : 'Mở menu điều hướng');
+    navigation.classList.toggle('is-open', open);
+  };
+  menuToggle.addEventListener('click', () => setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true'));
+  navigation.addEventListener('click', event => {
+    if (event.target.closest('a')) setMenuOpen(false);
+  });
+  document.addEventListener('click', event => {
+    if (!header.contains(event.target)) setMenuOpen(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+  window.matchMedia('(max-width: 760px)').addEventListener('change', () => setMenuOpen(false));
   if ('ResizeObserver' in window) {
     const heroTitle = document.getElementById('hero-title');
     const heroTitleCopy = heroTitle.querySelector('.hero-title-copy');
     const context = document.createElement('canvas').getContext('2d');
     const fitHeroTitle = () => {
-      if (!context || !window.matchMedia('(min-width: 1024px)').matches) {
+      if (!context || window.matchMedia('(min-width: 761px) and (max-width: 1023px)').matches) {
         heroTitle.style.removeProperty('--hero-fitted-size');
         return;
       }
@@ -225,6 +250,21 @@
     };
     new ResizeObserver(fitHeroTitle).observe(heroTitleCopy);
     document.fonts.ready.then(fitHeroTitle);
+    const heroSection = heroTitle.closest('.layer-hero');
+    const heroCopy = heroSection.querySelector('.layer-hero-copy');
+    const heroCta = heroSection.querySelector('.layer-hero-cta');
+    const fitMobileHero = () => {
+      if (!window.matchMedia('(max-width: 760px)').matches) {
+        heroSection.style.removeProperty('--hero-mobile-safe-height');
+        return;
+      }
+      const contentHeight = heroCopy.offsetHeight + heroCta.offsetHeight + 42;
+      heroSection.style.setProperty('--hero-mobile-safe-height', `${Math.ceil(contentHeight / .6)}px`);
+    };
+    const mobileHeroObserver = new ResizeObserver(fitMobileHero);
+    mobileHeroObserver.observe(heroCopy);
+    mobileHeroObserver.observe(heroCta);
+    document.fonts.ready.then(fitMobileHero);
 
   }
 </script>

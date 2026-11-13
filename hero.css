@@ -128,7 +128,7 @@
     display: block;
     container-type: inline-size;
     height: calc(100vw * 704 / 1922 + 90px);
-    background: url("assets/hero/banner-seamless.webp") top center / 100% 100% no-repeat;
+    background: url("assets/hero/banner-desktop-wave.webp") top center / 100% 100% no-repeat;
   }
   .layer-hero::before, .layer-hero::after,
   .layer-hero h1::before, .layer-hero h1::after,
@@ -151,7 +151,7 @@
     flex-direction: column;
     justify-content: flex-end;
     width: var(--title-width);
-    aspect-ratio: 1500 / 510;
+    aspect-ratio: 1500 / 645;
     padding: 0 4% 2%;
     background: url("assets/hero/title-decoration-refined.webp") center / 100% 100% no-repeat;
     font-size: 4.05cqw;
@@ -217,12 +217,12 @@
 
 /* Mobile uses a portrait background with an empty upper area for editable copy. */
 @media (max-width: 760px) {
-  .layer-hero { display: block; min-height: clamp(650px, 185vw, 1000px); background: url("assets/hero/banner-mobile.webp") center bottom / 100% 100% no-repeat #fff9f0; }
+  .layer-hero { display: block; min-height: clamp(650px, 185vw, 1000px); background: url("assets/hero/banner-mobile-wave.webp") center bottom / 100% 100% no-repeat #fff9f0; }
   .layer-hero::before, .layer-hero::after,
   .layer-hero h1::before, .layer-hero h1::after,
   .layer-hero-clinic, .layer-clinic-sign, .layer-hero-pets { display: none; }
   .layer-hero-copy { display: grid; gap: 12px; width: 100%; padding: 16px 18px 24px; transform: none; }
-  .layer-hero h1 { position: relative; width: 100%; aspect-ratio: 1500 / 510; margin: 0; padding: 0; font-size: clamp(21px, 6vw, 42px); background: url("assets/hero/title-decoration-refined.webp") center / 100% 100% no-repeat; }
+  .layer-hero h1 { position: relative; width: 100%; aspect-ratio: 1500 / 645; margin: 0; padding: 0; font-size: clamp(21px, 6vw, 42px); background: url("assets/hero/title-decoration-refined.webp") center / 100% 100% no-repeat; }
   .layer-hero h1 .hero-title-copy { position: absolute; inset: 35% 11% 13% 10%; display: flex; flex-direction: column; justify-content: center; line-height: 1.02; white-space: nowrap; }
   .layer-hero-tag { --tag-icon: clamp(25px, 7vw, 42px); width: fit-content; max-width: 100%; margin: 0 auto; padding: 9px 10px; font-size: clamp(14px, 3.65vw, 22px); }
   .layer-hero-lead { justify-self: center; max-width: 100%; margin: 0; padding: 7px 14px; font-size: clamp(13px, 3.5vw, 20px); }
@@ -231,4 +231,47 @@
   .layer-hero-services img { width: clamp(42px, 12vw, 72px); margin-bottom: 7px; }
   .layer-hero-scene { position: absolute; inset: auto 0 0; width: 100%; height: 42%; min-height: 0; aspect-ratio: auto; pointer-events: none; }
   .layer-hero-cta { pointer-events: auto; right: 50%; bottom: 18px; transform: translateX(50%); width: min(64%, 260px); min-height: 50px; padding: 10px 18px; font-size: 18px; }
+}
+
+@media (max-width: 760px) {
+  .layer-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(260px, 1fr);
+    min-height: clamp(700px, 190vw, 1060px);
+  }
+  .layer-hero-copy { grid-row: 1; gap: 10px; padding: 0 18px 12px; }
+  .layer-hero h1 { aspect-ratio: 1500 / 645; }
+  .layer-hero h1 .hero-title-copy { inset: 35% 10.5% 13%; text-align: center; }
+  .layer-hero-scene { display: contents; }
+  .layer-hero-cta {
+    position: static;
+    grid-row: 2;
+    justify-self: center;
+    align-self: start;
+    transform: none;
+    margin: 0 0 18px;
+    width: min(64%, 260px);
+    z-index: 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .layer-hero-tag { top: 54%; }
+  .layer-hero-lead { top: 63%; }
+  .layer-hero-services { top: 72%; }
+}
+
+@media (max-width: 760px) {
+  .layer-hero-copy { gap: 14px; }
+  .layer-hero h1 { font-size: var(--hero-fitted-size, clamp(23px, 6.8vw, 46px)); }
+  .layer-hero h1 .hero-title-copy { text-align: left; }
+  .layer-hero-tag { --tag-icon: clamp(28px, 8.4vw, 50.4px); gap: .2em; padding: 10px 7px; font-size: clamp(15px, 4.38vw, 26.4px); }
+  .layer-hero-lead { padding: 8px 17px; font-size: clamp(15.6px, 4.2vw, 24px); }
+  .layer-hero-services li { font-size: clamp(13.2px, 3.48vw, 19.2px); }
+  .layer-hero-services img { width: clamp(50.4px, 14.4vw, 86.4px); margin-bottom: 9px; }
+}
+
+@media (max-width: 760px) {
+  .layer-hero { min-height: max(clamp(760px, 200vw, 1200px), var(--hero-mobile-safe-height, 0px)); }
 }
