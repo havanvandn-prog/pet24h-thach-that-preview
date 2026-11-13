@@ -127,7 +127,7 @@ body { background: #fffcf8; }
 .site-header { background: #fffdf9; }
 .brand-mark { background: linear-gradient(145deg, #fc7424, #ec5c0c); }
 .brand strong { color: #f45000; }
-.button { background: linear-gradient(#fb7323 0%, #ec5c0c 15%, #e45c0c 100%); color: #291307; box-shadow: 0 4px 0 #69210015; }
+.button { background: linear-gradient(#fb7323 0%, #ec5c0c 15%, #e45c0c 100%); color: #fff; text-shadow: 0 1px 2px #5b2000; box-shadow: 0 4px 0 #69210015; }
 .button:hover { background: #fb7323; }
 .hero { position: relative; isolation: isolate; min-height: clamp(530px, 45vw, 685px); display: grid; align-items: center; background: #fff4e6; padding-block: 58px 78px; }
 .hero-grid { position: static; grid-template-columns: minmax(0, 1.05fr) 1fr; }
@@ -203,7 +203,7 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
   .timeline span { position: absolute; left: 0; top: 0; width: 43px; height: 43px; margin: 0; }
 }
 .emergency { color: #fff; }
-.emergency p { color: #2d1309; }
-.emergency .light { color: #a83700; background: #fff8ee; }
-.emergency .light:hover { background: #ffe3cc; }
+.emergency p { color: #fff; text-shadow: 0 1px 2px #5b2000; }
+.emergency .light { color: #fff; background: #ae3600; outline: 2px solid #fff8ee; }
+.emergency .light:hover { background: #943000; }
 .hero em { text-decoration: underline; text-decoration-color: #ff873d; text-decoration-thickness: .075em; text-underline-offset: .15em; }
