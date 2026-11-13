@@ -201,6 +201,9 @@
     flex-direction: column;
     justify-content: center;
     line-height: 1.02;
+    text-align: left;
+    transform: scale(.93);
+    transform-origin: center;
   }
   .layer-hero-tag { --tag-icon: clamp(20px, 3vw, 52px); }
   .layer-hero-services img { width: 5.5cqw; }
