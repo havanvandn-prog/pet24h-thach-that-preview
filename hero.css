@@ -47,7 +47,7 @@
 .layer-hero-lead strong { color: #ba3e00; }
 .layer-hero-services { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); list-style: none; padding: 0; margin: 0; }
 .layer-hero-services li { text-align: center; padding-inline: 4px; font: 900 clamp(.72rem, 1.2vw, 1.3rem)/1.14 var(--display); }
-.layer-hero-services li + li { border-left: 1px solid #f3a35c; }
+.layer-hero-services li + li { border-left: 0; }
 .layer-hero-services img { width: clamp(40px, 6vw, 108px); height: auto; margin: 0 auto 5px; mix-blend-mode: multiply; }
 .layer-hero-scene { position: relative; min-width: 0; }
 .layer-hero-clinic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; mask-image: linear-gradient(to right, transparent, black 23%); }
@@ -128,7 +128,7 @@
     display: block;
     container-type: inline-size;
     height: calc(100vw * 704 / 1922 + 90px);
-    background: url("assets/hero/banner-retouched.webp") top center / 100% 100% no-repeat;
+    background: url("assets/hero/banner-seamless.webp") top center / 100% 100% no-repeat;
   }
   .layer-hero::before, .layer-hero::after,
   .layer-hero h1::before, .layer-hero h1::after,
@@ -153,7 +153,7 @@
     width: var(--title-width);
     aspect-ratio: 1500 / 448;
     padding: 0 4% 2%;
-    background: url("assets/hero/title-decoration-redrawn.png") center / contain no-repeat;
+    background: url("assets/hero/title-decoration-refined.webp") center / 100% 100% no-repeat;
     font-size: 4.05cqw;
     line-height: 1.02;
     white-space: nowrap;
@@ -170,4 +170,65 @@
 @media (max-width: 760px) {
   .layer-hero::before { inset: 0 0 auto; height: 180px; opacity: .32; }
   .layer-hero::after { height: 15%; }
+}
+
+.layer-hero-lead {
+  border: 0;
+  padding: .55em .9em;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(165deg, #ff8718, #f14c00 80%);
+  text-align: center;
+}
+.layer-hero-lead strong { color: inherit; }
+.desktop-followup-break { display: none; }
+@media (min-width: 1024px) {
+  .layer-hero h1 { font-size: var(--hero-fitted-size, 4.05cqw); }
+  .hero-title-line { display: block; width: 100%; }
+  .layer-hero-lead { left: 5.7%; top: 59%; width: 38%; padding: .5em .7em; }
+  .desktop-followup-break { display: inline; }
+  .hero-followup-label { display: block; max-width: 11ch; margin-inline: auto; }
+}
+
+.hero-title-copy { display: block; }
+@media (min-width: 1024px) {
+  .layer-hero-copy { transform: translateY(-12px); }
+  .layer-hero h1 { padding: 0; }
+  .layer-hero h1 .hero-title-copy {
+    position: absolute;
+    inset: 37% 11% 13% 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.02;
+  }
+  .layer-hero-tag { --tag-icon: clamp(20px, 3vw, 52px); }
+  .layer-hero-services img { width: 5.5cqw; }
+}
+
+@media (min-width: 1024px) {
+  .layer-hero-tag { left: 8.85%; width: 34%; font-size: 1.65cqw; }
+}
+
+.layer-hero-lead { width: fit-content; max-width: 100%; margin-inline: auto; padding-inline: 1em; }
+@media (min-width: 1024px) {
+  .layer-hero-lead { left: 25.85%; width: max-content; max-width: 38%; transform: translateX(-50%); padding-inline: 1em; }
+}
+
+/* Mobile uses a portrait background with an empty upper area for editable copy. */
+@media (max-width: 760px) {
+  .layer-hero { display: block; min-height: clamp(650px, 185vw, 1000px); background: url("assets/hero/banner-mobile.webp") center bottom / 100% 100% no-repeat #fff9f0; }
+  .layer-hero::before, .layer-hero::after,
+  .layer-hero h1::before, .layer-hero h1::after,
+  .layer-hero-clinic, .layer-clinic-sign, .layer-hero-pets { display: none; }
+  .layer-hero-copy { display: grid; gap: 12px; width: 100%; padding: 16px 18px 24px; transform: none; }
+  .layer-hero h1 { position: relative; width: 100%; aspect-ratio: 1500 / 448; margin: 0; padding: 0; font-size: clamp(20px, 5.5vw, 38px); background: url("assets/hero/title-decoration-refined.webp") center / 100% 100% no-repeat; }
+  .layer-hero h1 .hero-title-copy { position: absolute; inset: 37% 11% 13% 10%; display: flex; flex-direction: column; justify-content: center; line-height: 1.02; white-space: nowrap; }
+  .layer-hero-tag { --tag-icon: clamp(25px, 7vw, 42px); width: fit-content; max-width: 100%; margin: 0 auto; padding: 9px 10px; font-size: clamp(14px, 3.65vw, 22px); }
+  .layer-hero-lead { justify-self: center; max-width: 100%; margin: 0; padding: 7px 14px; font-size: clamp(13px, 3.5vw, 20px); }
+  .layer-hero-services { width: 100%; }
+  .layer-hero-services li { padding-inline: 3px; font-size: clamp(11px, 2.9vw, 16px); }
+  .layer-hero-services img { width: clamp(42px, 12vw, 72px); margin-bottom: 7px; }
+  .layer-hero-scene { position: absolute; inset: auto 0 0; width: 100%; height: 42%; min-height: 0; aspect-ratio: auto; pointer-events: none; }
+  .layer-hero-cta { pointer-events: auto; right: 50%; bottom: 18px; transform: translateX(50%); width: min(64%, 260px); min-height: 50px; padding: 10px 18px; font-size: 18px; }
 }

@@ -226,7 +226,7 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
 .reasons .checklist li::before { display: none; }
 .reasons .checklist li {
   display: grid;
-  grid-template-columns: min(var(--reason-copy-height, 54px), 28%) minmax(0, 1fr);
+  grid-template-columns: clamp(64px, 6vw, 104px) minmax(0, 1fr);
   align-items: center;
   gap: clamp(12px, 1.2vw, 22px);
   padding: 13px 16px;
@@ -234,7 +234,7 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
 .reasons .checklist li img { width: 100%; height: auto; aspect-ratio: 1; object-fit: fill; border-radius: 14px; }
 @media (max-width: 720px) {
   .reasons .checklist li { grid-template-columns: minmax(0, 1fr); gap: 8px; }
-  .reasons .checklist li img { width: min(43px, 14%); border-radius: 7px; }
+  .reasons .checklist li img { width: 43px; border-radius: 7px; }
 }
 .process h2 { display: inline-block; padding: .18em .55em; border-radius: 1em; background: linear-gradient(#ff8a05,#e95000); color: #fff; text-shadow: 0 1px 2px #692600; }
 .process .timeline { gap: 14px; }
@@ -657,7 +657,7 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
   background-repeat: no-repeat;
 }
 .services { background: #fff5ea; }
-.emergency { background-image: url("assets/emergency/background.png"); color: #431a0d; }
+.emergency { background-image: url("assets/emergency/background-clean.webp"); color: #431a0d; }
 .reasons { background: #ffefdf; }
 .process { background-image: url("assets/process/background.png"); }
 .contact { background: #fff4e8; }
@@ -743,11 +743,11 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
 .process .timeline img {
   width: 48%;
   height: clamp(52px, 5.6vw, 116.8px);
-  margin-bottom: 4px;
+  margin-bottom: 9px;
   mix-blend-mode: normal;
 }
-.process .timeline h3 { font-size: 21px; width: 100%; }
-.process .timeline p { font: 400 clamp(14px, 1.32vw, 27px)/1.28 Arial,sans-serif; color: #47200b; }
+.process .timeline h3 { font-size: 18px; width: 100%; }
+.process .timeline p { margin-top: 12px; font: 400 clamp(14px, 1.32vw, 27px)/1.28 Arial,sans-serif; color: #47200b; }
 @media (min-width: 1000px) {
   .process .timeline li {
     --arrow-size: clamp(30px, 2.7vw, 55px);
@@ -816,7 +816,7 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
 .booking-copy .booking-address {
   --pin-size: clamp(32px, 3.5vw, 72px);
   margin-block: clamp(14px, 1.45vw, 30px);
-  padding: clamp(12px, 1vw, 21px) 12px clamp(12px, 1vw, 21px) calc(var(--pin-size) + clamp(36px, 4.6vw, 95px));
+  padding: clamp(12px, 1vw, 21px) 12px clamp(12px, 1vw, 21px) calc(var(--pin-size) + clamp(12px, 1.85vw, 38px) + 14px);
   background-size: var(--pin-size) auto;
   background-position: clamp(12px, 1.85vw, 38px) center;
   font: 400 clamp(15px, 1.4vw, 29px)/1.42 Arial,sans-serif;
@@ -877,3 +877,52 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
   .symptoms-paw-left { top: 28%; left: 4%; }
   .symptoms-paw-bottom { bottom: 5px; }
 }
+
+/* Shared horizontal alignment for Header and offers. */
+@media (min-width: 951px) {
+  .site-header > .wrap, .offers > .wrap { width: min(92%, 1640px); }
+}
+/* Emergency call follows the explanatory copy. */
+.emergency-grid { grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); }
+.emergency .light { margin-top: 20px; min-height: 48px; padding: 10px 20px; gap: 9px; font-size: 18px; background: #e5392d; color: #fff; border: 2px solid #fff; box-shadow: 0 3px 0 #77201920; }
+.emergency .light:hover { background: #ce2d23; color: #fff; }
+.emergency .light img { width: 28px; }
+@media (max-width: 720px) {
+  .emergency-grid { grid-template-columns: minmax(0,1fr); }
+}
+/* Foreground wave covers the lower cream platform with smooth curves. */
+.symptoms-front-wave { position: absolute; z-index: 2; inset: auto 0 0; width: 100%; height: 8%; pointer-events: none; }
+.symptoms-list, .symptoms-intro { z-index: 3; }
+.symptoms-paw-bottom { z-index: 3; }
+@media (max-width: 767px) {
+  .symptoms-front-wave { height: 4%; }
+}
+
+@media (min-width: 1000px) {
+  /* Center the visible composition, including the pets extending beyond the photo. */
+  .contact-grid { transform: translateX(8.5%); }
+}
+
+.process .timeline li:nth-child(1) > img,
+.process .timeline li:nth-child(3) > img,
+.process .timeline li:nth-child(4) > img { transform: translateX(8px); }
+@media (max-width: 720px) {
+  .process .timeline li:nth-child(1) > img,
+  .process .timeline li:nth-child(3) > img,
+  .process .timeline li:nth-child(4) > img { transform: translateX(5px); }
+}
+
+.campaign-footer .button {
+  min-height: 60px;
+  padding: 16.25px 51.25px;
+  font-size: 1.25em;
+  max-width: 100%;
+}
+.booking-copy .actions .button {
+  min-height: 60px;
+  padding: 16.25px 26.25px;
+  font-size: clamp(20px, 2.0625vw, 42.5px);
+  max-width: 100%;
+}
+
+.footer-facebook-link { display: block; padding: 10px 14px; border-top: 1px solid #ffe2c4; color: #a93600; background: #fff; text-align: center; text-decoration: none; font-weight: 800; }
