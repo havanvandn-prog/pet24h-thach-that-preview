@@ -957,3 +957,12 @@ footer { background: linear-gradient(175deg,#f46c1c,#e45c0c); color: #291307; }
   .campaign-heading .period { font-size: 1.08rem; padding: 4.8px 14.4px; }
   .campaign-heading .eyebrow { font-size: 1.008rem; gap: 10.8px; }
 }
+
+/* Compact promotion ticker above the navigation. */
+.promo-bar { display: block; height: 15px; overflow: hidden; color: #fff; background: linear-gradient(105deg, #f45100, #ff8900 48%, #ed4800); text-decoration: none; font-size: 11px; font-weight: 700; line-height: 15px; }
+.promo-track { display: flex; width: max-content; animation: promo-scroll 32s linear infinite; }
+.promo-group { display: flex; flex: 0 0 auto; justify-content: space-around; align-items: center; gap: 40px; min-width: 100vw; padding-inline: 20px; white-space: nowrap; }
+.promo-group > span::before { content: "✦"; margin-right: 10px; color: #ffe9ac; }
+.promo-bar:hover .promo-track, .promo-bar:focus-visible .promo-track { animation-play-state: paused; }
+@keyframes promo-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .promo-track { animation: none; } }

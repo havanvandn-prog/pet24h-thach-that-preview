@@ -127,8 +127,8 @@
   .layer-hero {
     display: block;
     container-type: inline-size;
-    height: calc(100vw * 704 / 1922 + 150px);
-    background: url("assets/hero/banner-desktop-wave.webp") top center / 100% 100% no-repeat;
+    height: calc(100vw * 704 / 1922 + 135px);
+    background: url("assets/hero/banner-desktop-storefront-v12.webp") top center / 100% 100% no-repeat;
   }
   .layer-hero::before, .layer-hero::after,
   .layer-hero h1::before, .layer-hero h1::after,
@@ -220,7 +220,7 @@
 
 /* Mobile uses a portrait background with an empty upper area for editable copy. */
 @media (max-width: 760px) {
-  .layer-hero { display: block; min-height: clamp(650px, 185vw, 1000px); background: url("assets/hero/banner-mobile-wave.webp") center bottom / 100% 100% no-repeat #fff9f0; }
+  .layer-hero { display: block; min-height: clamp(650px, 185vw, 1000px); background: url("assets/hero/banner-mobile-storefront-v12.webp") center bottom / 100% 100% no-repeat #fff9f0; }
   .layer-hero::before, .layer-hero::after,
   .layer-hero h1::before, .layer-hero h1::after,
   .layer-hero-clinic, .layer-clinic-sign, .layer-hero-pets { display: none; }
@@ -276,5 +276,5 @@
 }
 
 @media (max-width: 760px) {
-  .layer-hero { min-height: max(clamp(760px, 200vw, 1200px), var(--hero-mobile-safe-height, 0px)); }
+  .layer-hero { min-height: max(clamp(745px, calc(200vw - 15px), 1185px), calc(var(--hero-mobile-safe-height, 0px) - 15px)); }
 }
