@@ -127,7 +127,7 @@
   .layer-hero {
     display: block;
     container-type: inline-size;
-    height: calc(100vw * 704 / 1922 + 90px);
+    height: calc(100vw * 704 / 1922 + 150px);
     background: url("assets/hero/banner-desktop-wave.webp") top center / 100% 100% no-repeat;
   }
   .layer-hero::before, .layer-hero::after,
@@ -258,8 +258,8 @@
 
 @media (min-width: 1024px) {
   .layer-hero-tag { top: 54%; }
-  .layer-hero-lead { top: 63%; }
-  .layer-hero-services { top: 72%; }
+  .layer-hero-lead { top: 65%; }
+  .layer-hero-services { top: 76%; }
 }
 
 @media (max-width: 760px) {
