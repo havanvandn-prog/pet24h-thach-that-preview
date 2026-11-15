@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#fff8ee">
 <meta name="description" content="Pet24h Thạch Thất khám, xét nghiệm, phẫu thuật và cấp cứu cho chó mèo. Đặt lịch qua Zalo hoặc gọi 0983376911.">
 <title>Pet24h Thạch Thất | Bệnh viện thú y cho chó mèo</title>
-<link rel="stylesheet" href="style.css?v=pet24h-continuous-ticker-v14">
-<link rel="stylesheet" href="hero.css?v=pet24h-layered-storefront-v15">
+<link rel="stylesheet" href="style.css?v=pet24h-contact-width-v21">
+<link rel="stylesheet" href="hero.css?v=pet24h-hero-layout-v26">
 </head>
 <body id="dau-trang">
 <a class="skip" href="#main">Đến nội dung chính</a>
@@ -187,7 +187,17 @@
   <section id="lien-he" class="section contact" aria-labelledby="booking-title">
     <div class="wrap contact-grid">
       <figure class="booking-art"><img class="booking-facade" src="assets/contact/facade-storefront.jpg" alt="Mặt tiền Bệnh viện thú y Pet24h Thạch Thất" width="1924" height="2566" loading="lazy"><img class="booking-pets" src="assets/contact/pets-clean.webp" width="1254" height="1254" alt="" loading="lazy"></figure>
-      <div class="booking-copy"><h2 id="booking-title"><img src="assets/contact/calendar.png" alt="" loading="lazy"><span>Đặt lịch đưa bé đến <em>Pet24h</em></span></h2><p>Nhắn Zalo chọn ưu đãi hoặc đặt lịch, kèm loại thú cưng (chó/mèo), dịch vụ hoặc triệu chứng và giờ muốn đến.</p><address class="booking-address"><strong>Bệnh viện thú y Pet24h Thạch Thất</strong><span>105 Bình Phú, Thạch Thất, Hà Nội</span><span>Hotline và Zalo <a href="tel:0983376911">0983376911</a></span></address><div class="actions"><a class="button" href="https://zalo.me/0983376911" target="_blank" rel="noopener">Nhận Tư Vấn</a></div></div>
+      <div class="booking-copy">
+        <h2 id="booking-title"><img src="assets/contact/calendar.png" alt="" loading="lazy"><span>Đặt lịch đưa bé đến <em>Pet24h</em></span></h2>
+        <p>Nhắn Zalo chọn ưu đãi hoặc đặt lịch, kèm loại thú cưng (chó/mèo), dịch vụ hoặc triệu chứng và giờ muốn đến.</p>
+        <address class="booking-address"><strong>Bệnh viện thú y Pet24h Thạch Thất</strong><span>105 Bình Phú, Thạch Thất, Hà Nội</span><span>Hotline và Zalo <a href="tel:0983376911">0983376911</a></span></address>
+        <address class="booking-address">
+          <strong>Cơ sở 2 – Pet24h Sơn Tây</strong>
+          <span>479 P. Chùa Thông, Sơn Tây, Hà Nội, Việt Nam</span>
+          <span>Hotline <a href="tel:0325977111">0325977111</a></span>
+        </address>
+        <div class="actions"><a class="button" href="https://zalo.me/0983376911" target="_blank" rel="noopener">Nhận Tư Vấn</a></div>
+      </div>
     </div>
   </section>
 </main>
@@ -203,7 +213,6 @@
     </div>
     <div class="footer-social footer-embed">
       <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100095559453812&amp;tabs=timeline&amp;show_posts=true&amp;width=340&amp;height=375&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false" title="Fanpage Facebook Pet24h" width="340" height="375" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      <a class="footer-facebook-link" href="https://www.facebook.com/profile.php?id=100095559453812" target="_blank" rel="noopener">Xem bài viết trên Facebook</a>
     </div>
   </div>
   <div class="wrap footer-row"><span>© Pet24h Thạch Thất</span><a href="http://zalo.me/0356689475" target="_blank" rel="noopener">Được thực hiện bởi Văn Vạn</a></div>
@@ -270,10 +279,10 @@
       const width = heroTitleCopy.clientWidth;
       const height = heroTitleCopy.clientHeight;
       context.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-      const letterSpacing = parseFloat(style.letterSpacing) || 0;
-      const lengths = [...heroTitle.querySelectorAll('.hero-title-line')].map(line =>
-        context.measureText(line.textContent).width + Math.max(0, line.textContent.length - 1) * letterSpacing
-      );
+      const lengths = [...heroTitle.querySelectorAll('.hero-title-line')].map(line => {
+        const letterSpacing = parseFloat(getComputedStyle(line).letterSpacing) || 0;
+        return context.measureText(line.textContent).width + line.textContent.length * letterSpacing;
+      });
       const size = Math.min(parseFloat(style.fontSize) * (width - 8) / Math.max(...lengths), height / 2.12);
       if (width > 0 && Number.isFinite(size)) heroTitle.style.setProperty('--hero-fitted-size', `${size}px`);
     };
