@@ -268,7 +268,7 @@
   .layer-hero-services img { width: 5.1425cqw; }
   .layer-hero-pets {
     --hero-pets-width: 32.2575%;
-    inset: auto auto 5.5% calc(47.5% - 20px);
+    inset: auto auto 5.5% calc(47.5% - 50px);
     width: var(--hero-pets-width);
     height: auto;
   }
